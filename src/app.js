@@ -212,13 +212,25 @@ const IntroTemplate = {
     template: `
     <div>
         <div>
-            <h5><b>
-                TODO - Introduction programme cités éducatives
-                </b>
+        <h5><b>
+            Le programme Cités éducatives              
+            </b>
             </h5>
             <p>
-
+            Les Cités éducatives visent à intensifier les prises en charges éducatives des enfants et des jeunes, de la naissance à l’insertion professionnelle, avant, pendant, autour et après le cadre scolaire. Elles consistent en une grande alliance des acteurs éducatifs dans les quartiers prioritaires de la politique de la ville : parents, services de l’État, des collectivités, associations, habitants.
+            </p>            
+            <p>
+            Entre 2019 et 2023, 208 Cités éducatives se sont vues accorder ce label d’excellence. Elles s’étendent sur 385 QPV.
             </p>
+            <p>
+            À travers les Cités éducatives, le Gouvernement veut ainsi fédérer tous les acteurs de l’éducation scolaire et périscolaire, dans les territoires qui en ont le plus besoin et où seront concentrés les moyens publics. L’ambition des Cités éducatives n’est pas d’être un dispositif de plus mais de mieux coordonner les dispositifs existants et d’innover pour aller plus loin.
+            </p>
+        <h5><b>
+        Nous contacter        </b>
+        </h5>
+        <p>Ecrivez-nous à <a href='citeseducatives@anct.gouv.fr'>citeseducatives@anct.gouv.fr</a>
+        </p>
+
         </div>
     </div>`
 };
@@ -233,6 +245,24 @@ const CardInfoListTemplate = {
             <span class="subtitle">{{ subtitle }}</span><br>
             <span v-for="(item, index) in element" class="element">
             <span>{{ item }}</span><br>
+        </p>
+    `,
+};
+
+const CardInfoLinkTemplate = {
+    props: ['subtitle', 'element'],
+    template:`
+        <p v-if="element">
+            <span class="subtitle"><a :href=element target="_blank">{{ subtitle }}</a></span><br>
+        </p>
+    `,
+};
+
+const CardInfoMailTemplate = {
+    props: ['subtitle', 'element'],
+    template:`
+        <p>
+            <span class="subtitle"><a :href="'mailto:'+element" >{{ subtitle }}</a></span><br>
         </p>
     `,
 };
@@ -277,11 +307,14 @@ const CardTemplate = {
             <div v-for="(cite, index) in obs.cites" >
             <div class="card">
             <div class= "card-body">
+                
                 <info subtitle="Cité éducative" v-bind:element="cite.lib"></info>
                 <info subtitle="Année de labelisation" v-bind:element="cite.annee_lab"></info>
-                <info subtitle="Contact email" v-bind:element="cite.mail"></info>
-                <info subtitle="Lien d'accès" v-bind:element="cite.URL">hbuhvb</info>
+                <info subtitle="Année de labelisation" v-bind:element="cite.mail"></info>
+
                 <infoList subtitle="Quartiers de la politique de la ville (QPV)" v-bind:element="cite.qpv"></infoList>
+                <infoLink subtitle="Plus d'informations" v-bind:element="cite.URL"></infoLink>
+                <infoMail subtitle="Contact" v-bind:element="cite.mail"></infoMail>
             </div>
             </div>
             </div>
@@ -290,7 +323,8 @@ const CardTemplate = {
     components: {
         'info':CardInfoTemplate,
         'infoList':CardInfoListTemplate,
-
+        'infoLink':CardInfoLinkTemplate,
+        'infoMail':CardInfoMailTemplate
     },
     async mounted() {
     }
@@ -510,7 +544,7 @@ const LeafletMap = {
                     dep:{
                         interactive:false,
                         style: {
-                            fillColor:"#F2CB27",
+                            fillColor:"#53d3fb",
                             //TODO color
                             fillOpacity:1,
                             color:"white",
@@ -1040,7 +1074,7 @@ function geojsonToJson(geom) {
 ///////////// service
 
 async function getFormatedCitiesData() {
-    const csvFilePath = "/ce/data/data.csv"
+    const csvFilePath = "/ce/data/data_test.csv"
     const rawData = await parseCSV(csvFilePath)    
     const formatedData = getCiteFromRawJSON(rawData)
     return formatedData
