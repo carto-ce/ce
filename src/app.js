@@ -228,7 +228,7 @@ const IntroTemplate = {
         <h5><b>
         Nous contacter        </b>
         </h5>
-        <p>Ecrivez-nous à <a href='citeseducatives@anct.gouv.fr'>citeseducatives@anct.gouv.fr</a>
+        <p>Ecrivez-nous à <a href='mailto:citeseducatives@anct.gouv.fr'>citeseducatives@anct.gouv.fr</a>
         </p>
 
         </div>
@@ -445,11 +445,11 @@ const LeafletSidebar = {
                 </p>
                 <p>
                     <b>Réalisation  et maintenance de l'outil :</b>
-                    ANCT, pôle Analyse & diagnostics territoriaux - <a href = 'https://cartotheque.anct.gouv.fr/cartes' target="_blank">Service cartographie</a>
+                    ANCT, DDPV – Programme Education
                 </p>
                 <p>Technologies utilisées : Leaflet, Bootstrap, VueJS</p>
                 <p>Les données sources sont mises à disposition sur <a href="https://www.data.gouv.fr/fr/datasets/programme-petites-villes-de-demain/" target="_blank">data.gouv.fr</a></p>
-                <p>Le code source de cet outil est libre et consultable sur TODO <a href="https://www.github.com/anct-carto/pvd" target="_blank">Github</a>.</p>
+                <p>Le code source de cet outil est libre et consultable sur <a href="https://github.com/carto-ce/ce" target="_blank">Github</a>.</p>
                 <p>Cet outil utilise le code source de l'outil "Carte intéractive du programme Petites Villes de Demain" <a href="https://www.github.com/anct-carto/pvd" target="_blank">Github</a>.</p>
 
             </div>
@@ -544,8 +544,7 @@ const LeafletMap = {
                     dep:{
                         interactive:false,
                         style: {
-                            fillColor:"#53d3fb",
-                            //TODO color
+                            fillColor:"#bcedf5",
                             fillOpacity:1,
                             color:"white",
                             weight:0.5,

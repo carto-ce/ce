@@ -22,6 +22,10 @@ html, body, #mapid {
 	color:#161616
 }
 
+#mapid {
+	background: rgb(245, 245, 245)
+}
+
 /* -------------------------------------------------------------------------- */
 /* 								SCREEN LOADING					   	 		  */													
 /* -------------------------------------------------------------------------- */
@@ -75,7 +79,7 @@ html, body, #mapid {
 
 /* sidebar */
 .leaflet-sidebar-tabs {
-	background: var(--color-programme);
+	background: rgb(154,61,119);
 	/* background: linear-gradient(180deg, var(--bleu-anct) 0%, rgb(226, 224, 245) 100%);  */
 	box-shadow: 2px 0px 2px 0px #656565;
 }
@@ -143,6 +147,7 @@ html, body, #mapid {
 
 /* chef lieux */
 .leaflet-marker-pane {
+	display: none;
 	left:-10px;
 	opacity: 0.75;
 	font-family: 'Abel-Regular';
