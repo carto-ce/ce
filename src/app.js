@@ -309,8 +309,7 @@ const CardTemplate = {
             <div class= "card-body">
                 
                 <info subtitle="Cité éducative" v-bind:element="cite.lib"></info>
-                <info subtitle="Année de labelisation" v-bind:element="cite.annee_lab"></info>
-                <info subtitle="Année de labelisation" v-bind:element="cite.mail"></info>
+                <info subtitle="Année de labellisation" v-bind:element="cite.annee_lab"></info>
 
                 <infoList subtitle="Quartiers de la politique de la ville (QPV)" v-bind:element="cite.qpv"></infoList>
                 <infoLink subtitle="Plus d'informations" v-bind:element="cite.URL"></infoLink>
