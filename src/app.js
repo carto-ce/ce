@@ -1072,7 +1072,7 @@ function geojsonToJson(geom) {
 ///////////// service
 
 async function getFormatedCitiesData() {
-    const csvFilePath = "/ce/data/data_test.csv"
+    const csvFilePath = "/ce/data/data.csv"
     const rawData = await parseCSV(csvFilePath)    
     const formatedData = getCiteFromRawJSON(rawData)
     return formatedData
