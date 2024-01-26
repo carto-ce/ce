@@ -253,7 +253,12 @@ const CardInfoLinkTemplate = {
     props: ['subtitle', 'element'],
     template:`
         <p v-if="element">
-            <span class="subtitle"><a :href=element target="_blank">{{ subtitle }}</a></span><br>
+            <span class="subtitle">{{ subtitle }}</span><br>
+            <span class="element"><a :href=element target="_blank">{{ subtitle }}</a></span><br>
+        </p>
+        <p v-else>
+            <span class="subtitle">{{ subtitle }}</span><br>
+            <span class="element"><a>{{ "Lien non communiqué" }}</a></span><br>
         </p>
     `,
 };
@@ -261,8 +266,13 @@ const CardInfoLinkTemplate = {
 const CardInfoMailTemplate = {
     props: ['subtitle', 'element'],
     template:`
-        <p>
-            <span class="subtitle"><a :href="'mailto:'+element" >{{ subtitle }}</a></span><br>
+        <p v-if="element">
+            <span class="subtitle">{{ subtitle }}</span><br>
+            <span class="element"><a :href="'mailto:'+element" >{{ element }}</a></span><br>
+        </p>
+        <p v-else>
+            <span class="subtitle">{{ subtitle }}</span><br>
+            <span class="element"><a>{{ "Contact non communiqué" }}</a></span><br>
         </p>
     `,
 };
@@ -312,7 +322,7 @@ const CardTemplate = {
                 <info subtitle="Année de labellisation" v-bind:element="cite.annee_lab"></info>
 
                 <infoList subtitle="Quartiers de la politique de la ville (QPV)" v-bind:element="cite.qpv"></infoList>
-                <infoLink subtitle="Plus d'informations" v-bind:element="cite.URL"></infoLink>
+                <infoLink subtitle="Lien" v-bind:element="cite.URL"></infoLink>
                 <infoMail subtitle="Contact" v-bind:element="cite.mail"></infoMail>
             </div>
             </div>
