@@ -153,7 +153,7 @@ const SearchBar = {
 
             if (val != undefined && val != '') {
                 result = this.data.filter(e => {
-                    return e[this.libName].toLowerCase().replace(/-/g," ").includes(val.toLowerCase())
+                    return e[this.libName].toLowerCase().replace(/-/g, " ").startsWith(val.replace(/-/g, " ").toLowerCase());
                 });
                 this.suggestionsList = result.slice(0,6);
             }
